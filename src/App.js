@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import style from './App.module.css';
+import Header from './components/Header/Header'
+import Navbar from './components/Navbar/Navbar'
+import Body from './components/Body/Body'
+import Footer from './components/Footer/Footer'
+import Users from './components/Users/Users';
+import Profile from './components/Profile/Profile';
+import Settings from './components/Settings/Settings';
+import Dialogs from './components/Dialogs/Dialogs';
+import { Route } from 'react-router';
 
-function App() {
+const App = (props) => {
+  debugger
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={style.wrapper}>
+      <Header />
+      <Navbar />
+      <div className={style.content}>
+        <Route exact path='/' component={Body} />
+        <Route path='/dialogs' component={Dialogs} />
+        <Route path='/users' component={Users} />
+        <Route path='/profile' render={() => <Profile posts={props.posts} />} />
+        <Route path='/settings' component={Settings} />
+      </div>
+      
+      <Footer />
     </div>
-  );
+  )
 }
 
 export default App;

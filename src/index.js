@@ -1,12 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import App from './App'
+import reportWebVitals from './reportWebVitals'
+import {BrowserRouter} from 'react-router-dom'
+
+let posts = [
+  {id: 1, text: 'Hello, how are doing?'},
+  {id: 2, text: 'React native? whaaat?'},
+  {id: 3, text: 'abracadabra'},
+  {id: 4, text: 'there is no time to be lazy'},
+  {id: 5, text: 'new post'}
+]
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App posts={posts} />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

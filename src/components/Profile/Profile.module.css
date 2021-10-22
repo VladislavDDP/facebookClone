@@ -1,0 +1,17 @@
+.profile_page {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile_description {
+    display: flex;
+}
+
+.profile_posts {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile_post {
+    display: flex;
+}

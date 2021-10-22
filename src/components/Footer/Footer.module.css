@@ -1,0 +1,12 @@
+.footer {
+    grid-area: f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(98, 95, 228);
+}
+
+.footer_info {
+    font-weight: 700;
+    color: #fff;
+}
