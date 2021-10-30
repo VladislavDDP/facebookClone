@@ -2,8 +2,7 @@ import Post from './Post'
 import style from './Profile.module.css'
 
 const Profile = (props) => {
-    debugger
-    const profilePosts = props.posts.map(post => <Post text={post.text} />)
+    const profilePosts = props.profilePage.posts.map(post => <Post text={post.text} />)
 
     return (
         <div>

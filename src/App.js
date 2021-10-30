@@ -18,8 +18,8 @@ const App = (props) => {
       <div className={style.content}>
         <Route exact path='/' component={Body} />
         <Route path='/dialogs' component={Dialogs} />
-        <Route path='/users' component={Users} />
-        <Route path='/profile' render={() => <Profile posts={props.posts} />} />
+        <Route path='/users' render={() => <Users usersPage={props.state.usersPage} />} />
+        <Route path='/profile' render={() => <Profile profilePage={props.state.profilePage} />} />
         <Route path='/settings' component={Settings} />
       </div>
       

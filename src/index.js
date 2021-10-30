@@ -4,19 +4,12 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import {BrowserRouter} from 'react-router-dom'
-
-let posts = [
-  {id: 1, text: 'Hello, how are doing?'},
-  {id: 2, text: 'React native? whaaat?'},
-  {id: 3, text: 'abracadabra'},
-  {id: 4, text: 'there is no time to be lazy'},
-  {id: 5, text: 'new post'}
-]
+import {state} from './redux/state'
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App posts={posts} />
+      <App state={state} />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
