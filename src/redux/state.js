@@ -3,6 +3,7 @@ export const state = {
         photo: null,
         theme: null,
         status: null,
+        currentPostText: null,
         posts: [
             {id: 1, text: 'Hello, how are doing?'},
             {id: 2, text: 'React native? whaaat?'},
@@ -34,3 +35,5 @@ export const state = {
         ]
     }
 }
+
+window.posts = state.profilePage.posts

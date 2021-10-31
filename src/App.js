@@ -10,7 +10,6 @@ import Dialogs from './components/Dialogs/Dialogs';
 import { Route } from 'react-router';
 
 const App = (props) => {
-  debugger
   return (
     <div className={style.wrapper}>
       <Header />
