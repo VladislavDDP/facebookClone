@@ -1,15 +1,14 @@
+import { rerenderTree } from "../render"
+
 export const state = {
     profilePage: {
         photo: null,
         theme: null,
         status: null,
-        currentPostText: null,
+        currentPostText: '',
         posts: [
             {id: 1, text: 'Hello, how are doing?'},
-            {id: 2, text: 'React native? whaaat?'},
-            {id: 3, text: 'abracadabra'},
-            {id: 4, text: 'there is no time to be lazy'},
-            {id: 5, text: 'new post'}
+            {id: 2, text: 'React native? whaaat?'}
         ]
     },
     usersPage: {
@@ -36,4 +35,8 @@ export const state = {
     }
 }
 
-window.posts = state.profilePage.posts
+export const addPost = (text) => {
+    const newPost = {id: 3, text: text}
+    state.profilePage.posts.unshift(newPost)
+    rerenderTree(state)
+}

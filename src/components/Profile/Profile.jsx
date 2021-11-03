@@ -1,20 +1,17 @@
 import React from 'react'
 import Post from './Post'
-import style from './Profile.module.css'
 
 const Profile = (props) => {
     const profilePosts = props.profilePage.posts.map(post => <Post text={post.text} />)
     const post_input = React.createRef()
 
     const clickMe = () => {
-        console.log(post_input.current.value);
-        props.profilePage.posts.push({id: 6, text: post_input.current.value})
-        console.log(props.profilePage.posts);
+        props.addPost(post_input.current.value)
+        post_input.current.value = ''
     }
 
     const textChange = (e) => {
         props.profilePage.currentPostText = e.target.value
-        console.log(props.profilePage.currentPostText);
     }
     
     return (
