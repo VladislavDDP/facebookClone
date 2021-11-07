@@ -1,4 +1,4 @@
-import { rerenderTree } from "../render"
+let rerender = undefined
 
 export const state = {
     profilePage: {
@@ -38,5 +38,9 @@ export const state = {
 export const addPost = (text) => {
     const newPost = {id: 3, text: text}
     state.profilePage.posts.unshift(newPost)
-    rerenderTree(state)
+    rerender(state)
+}
+
+export const observer = (func) => {
+    rerender = func
 }
