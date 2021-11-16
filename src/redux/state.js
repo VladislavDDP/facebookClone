@@ -6,8 +6,8 @@ export const store = {
             status: null,
             currentPostText: '',
             posts: [
-                {id: 1, text: 'Hello, how are doing?'},
-                {id: 2, text: 'React native? whaaat?'}
+                {id: 1, text: 'Hello, how are doing?', likes: 0},
+                {id: 2, text: 'React native? whaaat?', likes: 0}
             ]
         },
         usersPage: {
@@ -40,15 +40,18 @@ export const store = {
         return this._state
     },
 
-
-    addPost(text) {
-        console.log(this)
-        const newPost = {id: 3, text: text}
-        this._state.profilePage.posts.unshift(newPost)
-        this._rerender(this._state)
-    },
-    
     subscribe(observer) {
         this._rerender = observer
+    },
+
+    dispatch(action) {
+        
+        if (action.type === 'ADD_POST') {
+            const newPost = {id: 3, text: action.text}
+            this._state.profilePage.posts.unshift(newPost)
+            this._rerender(this._state)
+        } else if (action.type === 'LIKE-POST') {
+            // logic
+        }
     }
 }

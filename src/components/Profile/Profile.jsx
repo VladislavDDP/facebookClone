@@ -1,4 +1,5 @@
 import React from 'react'
+import { addPostAC } from '../../redux/actions'
 import Post from './Post'
 
 const Profile = (props) => {
@@ -6,7 +7,7 @@ const Profile = (props) => {
     const post_input = React.createRef()
 
     const clickMe = () => {
-        props.addPost(post_input.current.value)
+        props.dispatch(addPostAC(post_input.current.value))
         post_input.current.value = ''
     }
 
