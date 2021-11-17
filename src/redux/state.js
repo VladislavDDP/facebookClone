@@ -1,3 +1,6 @@
+import { dialogsReducer } from "./dialogsReducer"
+import { profileReducer } from "./profileReducer"
+
 export const store = {
     _state: {
         profilePage: {
@@ -6,8 +9,8 @@ export const store = {
             status: null,
             currentPostText: '',
             posts: [
-                {id: 1, text: 'Hello, how are doing?', likes: 0},
-                {id: 2, text: 'React native? whaaat?', likes: 0}
+                {id: 1, text: 'Hello, how are doing?', likes: 0, author: 'Vlad'},
+                {id: 2, text: 'React native? whaaat?', likes: 0, author: 'Nikita'}
             ]
         },
         usersPage: {
@@ -45,13 +48,9 @@ export const store = {
     },
 
     dispatch(action) {
-        
-        if (action.type === 'ADD_POST') {
-            const newPost = {id: 3, text: action.text}
-            this._state.profilePage.posts.unshift(newPost)
-            this._rerender(this._state)
-        } else if (action.type === 'LIKE-POST') {
-            // logic
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+
+        this._rerender(this._state)
     }
 }

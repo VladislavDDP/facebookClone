@@ -3,7 +3,7 @@ import { addPostAC } from '../../redux/actions'
 import Post from './Post'
 
 const Profile = (props) => {
-    const profilePosts = props.profilePage.posts.map(post => <Post text={post.text} />)
+    const profilePosts = props.profilePage.posts.map(post => <Post author={post.author} text={post.text} />)
     const post_input = React.createRef()
 
     const clickMe = () => {
